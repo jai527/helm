@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: nginx-deployment
+  labels:
+    project: roboshop
+    environment: dev
+    purpose: rs-demo
+    tier: frontend
+    component: frontend
+  annotations:
+    kubernetes.io/change-cause: {{ .Values.deployment.changeCause }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels: 
+      project: roboshop
+      environment: dev
+      purpose: rs-demo
+      tier: frontend
+      component: frontend
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        environment: dev
+        purpose: rs-demo
+        tier: frontend
+        component: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: {{ .Values.deployment.imageVersion}}
+
