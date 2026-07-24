@@ -3,7 +3,7 @@ kind: service
 metadata:
   name: nginx
 spec:
-  type: {{ .Values.Service.type }}
+  type: {{ .Values.service.type }}
   selector:
     project: roboshop
     environment: dev
