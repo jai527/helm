@@ -1,5 +1,5 @@
 deployment:
-  replicas: "1"
+  #replicas: "1"
   changeCause: "1.29-trixie"
   imageVersion: "latest version"
 service:
